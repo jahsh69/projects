@@ -1,0 +1,71 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class calc extends Frame implements ActionListener{
+	Button add,div,mul;
+	TextField t1,t2,res;
+	Label l1,l2;
+	calc()
+	{
+		super("Calculator");
+		add=new Button("ADD");
+		div=new Button("DIVIDE");
+		mul=new Button("MULTIPLY");
+		t1= new TextField(30);
+		t2= new TextField(30);
+		res= new TextField(30);
+		l1=new Label("Number 1");
+		l2=new Label("Number 2 ");
+		add(l1);
+		add(t1);
+		add(l2);
+		add(t2);
+		add(add);
+		add(div);
+		add(mul);
+		add(res);
+		setLayout(new FlowLayout());
+		setSize(300,300);
+		setVisible(true);
+		add.addActionListener(this);
+		div.addActionListener(this);
+		mul.addActionListener(this);
+
+
+		
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		double num1,num2;
+		double result=0;
+	
+		Object source=e.getSource();
+		num1=Double.parseDouble(t1.getText());
+		num2=Double.parseDouble(t2.getText());
+		if(source==add)
+		{
+			result=num1+num2;
+		
+		}
+		if(source==div)
+		{
+			result=num1/num2;
+		
+		}
+		if(source==mul)
+		{
+			result=num1*num2;
+		
+		}
+		res.setText(String.valueOf(result));
+		
+		
+	}
+	
+	
+	public static void main(String[]args) {
+		calc obj=new calc();
+	}
+}
